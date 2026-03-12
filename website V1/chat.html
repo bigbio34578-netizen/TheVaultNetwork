@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vault 111 Chat Terminal</title>
+
+<style>
+body{
+  background:#020402;
+  color:#33ff66;
+  font-family:"Courier New", monospace;
+  margin:0;
+  text-shadow:0 0 6px #00ff66;
+}
+
+/* NAVBAR */
+.navbar{
+  background:#001a00;
+  border-bottom:2px solid #33ff66;
+  padding:10px;
+  text-align:center;
+}
+
+.navbar a{
+  color:#33ff66;
+  text-decoration:none;
+  margin:0 15px;
+  font-size:16px;
+}
+
+.navbar a:hover{
+  color:black;
+  background:#33ff66;
+  padding:5px 10px;
+}
+
+.navbar a.disabled{
+  opacity:0.5;
+  cursor:not-allowed;
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  font-size:28px;
+  margin-top:20px;
+}
+
+/* CHAT BOX */
+.chatbox{
+  width:80%;
+  height:400px;
+  margin:40px auto;
+  border:2px solid #33ff66;
+  background:#001100;
+  padding:20px;
+  overflow-y:auto;
+}
+
+/* INPUT AREA */
+.input-area{
+  width:80%;
+  margin:auto;
+  display:flex;
+  gap:10px;
+}
+
+input{
+  flex:1;
+  padding:10px;
+  background:black;
+  color:#33ff66;
+  border:2px solid #33ff66;
+  font-family:monospace;
+}
+
+button{
+  padding:10px 20px;
+  background:black;
+  color:#33ff66;
+  border:2px solid #33ff66;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#33ff66;
+  color:black;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(0,255,0,0.05),
+    rgba(0,255,0,0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html">HOME</a>
+  <a href="live.html">STREAMS</a>
+  <a href="videos.html">VIDEOS</a>
+  <a href="chat.html">CHAT</a>
+  <a class="disabled">UPLOAD</a>
+  <a href="support.html">SUPPORT</a>
+  <a href="dono.html">DONATIONS</a>
+</div>
+
+<header>VAULT 111 COMMUNITY CHAT</header>
+
+<div class="chatbox" id="chatbox">
+  <p><b>System:</b> Vault communication channel opened.</p>
+</div>
+
+<div class="input-area">
+  <input id="messageInput" placeholder="Type message..." onkeydown="checkEnter(event)">
+  <button onclick="sendMessage()">SEND</button>
+</div>
+
+<script>
+/* Generate Vault Dweller ID */
+let vaultID = Math.floor(1000 + Math.random() * 9000);
+let chat = document.getElementById("chatbox");
+
+/* Join message */
+let joinMessage = document.createElement("p");
+joinMessage.innerHTML = "<b>System:</b> Vault Dweller #" + vaultID + " has entered the chat.";
+chat.appendChild(joinMessage);
+
+/* Send message */
+function sendMessage(){
+  let input = document.getElementById("messageInput");
+  if(input.value.trim() !== ""){
+    let message = document.createElement("p");
+    message.innerHTML = "<b>Vault Dweller #" + vaultID + ":</b> " + input.value;
+    chat.appendChild(message);
+    chat.scrollTop = chat.scrollHeight;
+    input.value="";
+  }
+}
+
+/* Enter key */
+function checkEnter(event){
+  if(event.key === "Enter"){
+    sendMessage();
+  }
+}
+</script>
+
+</body>
+</html>

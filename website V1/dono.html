@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vault 111 Donations</title>
+  <style>
+    body{
+      background:#020402;
+      color:#33ff66;
+      font-family:"Courier New", monospace;
+      margin:0;
+      text-align:center;
+      text-shadow:0 0 6px #00ff66;
+      animation:flicker 0.15s infinite;
+    }
+
+    /* Navbar */
+    .navbar{
+      background:#001a00;
+      border-bottom:2px solid #33ff66;
+      padding:10px;
+      text-align:center;
+    }
+
+    .navbar a{
+      color:#33ff66;
+      text-decoration:none;
+      margin:0 15px;
+      font-size:16px;
+    }
+
+    .navbar a:hover{
+      color:black;
+      background:#33ff66;
+      padding:5px 10px;
+    }
+
+    .navbar a.disabled{
+      opacity:0.5;
+      cursor:not-allowed;
+    }
+
+    header{
+      font-size:28px;
+      margin-top:20px;
+      text-align:center;
+    }
+
+    .donation-section{
+      margin-top:50px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:25px;
+    }
+
+    .button{
+      padding:12px 20px;
+      border:2px solid #33ff66;
+      background:#001100;
+      color:#33ff66;
+      text-decoration:none;
+      cursor:pointer;
+      font-size:18px;
+      transition:0.2s;
+    }
+
+    .button:hover{
+      background:#33ff66;
+      color:black;
+      transform:scale(1.05);
+      box-shadow:0 0 20px #33ff66;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:repeating-linear-gradient(
+        to bottom,
+        rgba(0,255,0,0.05),
+        rgba(0,255,0,0.05) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      pointer-events:none;
+    }
+
+    @keyframes flicker{
+      0%{opacity:0.95;}
+      50%{opacity:1;}
+      100%{opacity:0.97;}
+    }
+
+    .info-text{
+      width:80%;
+      max-width:600px;
+      text-align:center;
+      font-size:18px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <a href="index.html">HOME</a>
+  <a href="live.html">STREAMS</a>
+  <a href="videos.html">VIDEOS</a>
+  <a href="chat.html">CHAT</a>
+  <a class="disabled">UPLOAD</a>
+  <a href="support.html">SUPPORT</a>
+  <a href="dono.html">DONATIONS</a>
+</div>
+
+<header>SUPPORT THE VAULT</header>
+
+<div class="donation-section">
+  <div class="info-text">
+    Your support keeps the Vault running and the Overseer on duty. Click below to contribute:
+  </div>
+
+  <a href="https://patreon.com/vault111overseer?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" class="button">Donate via Patreon</a>
+</div>
+
+</body>
+</html>
